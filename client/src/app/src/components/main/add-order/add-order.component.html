@@ -1,0 +1,77 @@
+<section class="grid grid-cols-12 shadow-md rounded-2xl">
+  <div class="col-span-12 px-5 mt-6 font-bold">
+    <h1 class="float-left text-blue-700">Add /edit Orders</h1>
+    <button type="submit" class="bg-blue-500 px-4 py-1 rounded-2xl float-right text-white hover:bg-blue-700 transition ease-in duration-75">SAVE</button>
+  </div>
+
+  <div class="col-span-12 p-5  mt-3">
+    <form class="w-full">
+      <div class="flex flex-wrap -mx-3 ">
+        <div class="w-full md:w-2/5 px-3 mb-6 md:mb-0">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+            Product Name
+          </label>
+          <input class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" placeholder="Product Name">
+        </div>
+
+        <div class="w-full md:w-2/5 px-3">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+            Customer
+          </label>
+          <div class="relative">
+            <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
+              <option>Jonas</option>
+              <option>Tom D</option>
+              <option>Yarrut</option>
+            </select>
+            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+              <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="w-full md:w-1/5 px-3">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+            Count
+          </label>
+          <div class="relative">
+            <input class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" placeholder="Count">
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="col-span-12 p-5">
+    <ul>
+      <li class="grid grid-cols-12 px-2 bg-gray-100 py-1 rounded-tl-xl rounded-tr-xl">
+        <div class="col-span-3 font-bold">hoodie</div>
+        <div class="col-span-3">1x</div>
+        <div class="col-span-3">23 Juli 2019</div>
+        <div class="col-span-3">20$</div>
+      </li>
+
+      <li class="grid grid-cols-12 px-2 bg-gray-200 py-1">
+        <div class="col-span-3 font-bold">cap</div>
+        <div class="col-span-3">1x</div>
+        <div class="col-span-3">23 Juli 2019</div>
+        <div class="col-span-3">20$</div>
+      </li>
+
+      <li class="grid grid-cols-12 px-2 bg-gray-100 py-1">
+        <div class="col-span-3 font-bold">pants</div>
+        <div class="col-span-3">1x</div>
+        <div class="col-span-3">23 Juli 2019</div>
+        <div class="col-span-3">20$</div>
+      </li>
+
+      <li class="grid grid-cols-12 px-2 bg-gray-200 py-1 rounded-bl-xl rounded-br-xl">
+        <div class="col-span-3 font-bold">cap</div>
+        <div class="col-span-3">1x</div>
+        <div class="col-span-3">23 Juli 2019</div>
+        <div class="col-span-3">20$</div>
+      </li>
+    </ul>
+    <p class="text-right mt-4">total: 60$</p>
+  </div>
+</section>
