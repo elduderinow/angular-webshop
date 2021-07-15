@@ -1,25 +1,18 @@
-<header class="border-b md:flex md:items-center md:justify-between p-4 pb-0 shadow-lg md:pb-4">
+<header class="grid grid-cols-8 bg-blue-700 p-2 gap-4">
+    <div class="col-span-8 md:col-span-2 text-white text-3xl">
+      <h1 class="text-center md:text-left">ORDER APP</h1>
+    </div>
 
-  <!-- Logo text or image -->
-  <div class="flex items-center justify-between mb-4 md:mb-0">
-    <h1 class="leading-none text-2xl text-grey-darkest">
-      <a class="no-underline text-grey-darkest hover:text-black" href="#">
-        ORDER APP
-      </a>
-    </h1>
+    <div class="col-span-6 md:col-span-5 bg-red-200">
+      <form class="w-full">
+        <label class="hidden">Search</label>
+        <input class="bg-grey-lightest border-2 focus:border-orange p-2 rounded-lg shadow-inner w-full" placeholder="Search" type="text">
+        <button class="hidden">Submit</button>
+      </form>
+    </div>
 
-    <a class="text-black hover:text-orange md:hidden" href="#">
-      <i class="fa fa-2x fa-bars"></i>
-    </a>
-  </div>
-  <!-- END Logo text or image -->
-
-  <!-- Search field -->
-  <form class="mb-4 w-full md:mb-0 md:w-1/4">
-    <label class="hidden">Search</label>
-    <input class="bg-grey-lightest border-2 focus:border-orange p-2 rounded-lg shadow-inner w-full" placeholder="Search" type="text">
-    <button class="hidden">Submit</button>
-  </form>
-  <!-- END Search field -->
+    <div class="col-span-2 md:col-span-1 md:col-span-1">
+      <h2>User<br>name</h2>
+    </div>
 
 </header>
