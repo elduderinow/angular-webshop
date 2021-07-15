@@ -9,6 +9,9 @@ import { FooterComponent } from './src/components/footer/footer.component';
 import { NavbarComponent } from './src/components/main/navbar/navbar.component';
 import { OrdersComponent } from './src/components/main/orders/orders.component';
 import { ProductsComponent } from './src/components/main/products/products.component';
+import { AddOrderComponent } from './src/components/main/add-order/add-order.component';
+import { NewProductComponent } from './src/components/main/new-product/new-product.component';
+
 
 
 @NgModule({
@@ -20,6 +23,8 @@ import { ProductsComponent } from './src/components/main/products/products.compo
     NavbarComponent,
     OrdersComponent,
     ProductsComponent,
+    AddOrderComponent,
+    NewProductComponent,
 
   ],
   imports: [
