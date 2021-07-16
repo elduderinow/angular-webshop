@@ -6,7 +6,6 @@ import { Product } from 'src/app/product';
   providedIn: 'root',
 })
 export class AddProductService {
-<<<<<<< HEAD
   url: string = 'http://localhost:9000';
 
   constructor(private http: HttpClient) {}
