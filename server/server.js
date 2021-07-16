@@ -61,7 +61,7 @@ app.get('/getOrders', function (request, response) {
 });
 
 app.post('/addOrder', function (request, response) {
-  allOrder.push(request.body);
+  allOrders.push(request.body);
   response.status(200).send();
 });
 
