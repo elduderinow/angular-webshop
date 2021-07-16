@@ -26,13 +26,14 @@ let allProducts = [
   },
 ];
 
-let allOrder =  [ {
-      date: '16/07/2021',
-      productname: 'shorts',
-      customer: 'Jonas',
-      count: 2
-    },
-    ];
+let allOrders = [
+  {
+    date: '16/07/2021',
+    productname: 'shorts',
+    customer: 'Jonas',
+    count: 2,
+  },
+];
 
 // Below you can define how your API handles a get or a post request.
 // Try sending a get request to the root, you should get a "Hello from server" back.
@@ -55,8 +56,8 @@ app.post('/addProduct', (request, response) => {
   console.log(allProducts);
 });
 
-app.get('/allOrder', function (request, response) {
-  response.send(allOrder);
+app.get('/getOrders', function (request, response) {
+  response.send(allOrders);
 });
 
 app.post('/addOrder', function (request, response) {
@@ -67,4 +68,3 @@ app.post('/addOrder', function (request, response) {
 app.listen(PORT, function () {
   console.log(`Now running on port: ${PORT}`);
 });
-
