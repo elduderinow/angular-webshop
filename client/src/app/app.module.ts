@@ -12,7 +12,7 @@ import { ProductsComponent } from './src/components/main/products/products.compo
 import { AddOrderComponent } from './src/components/main/add-order/add-order.component';
 import { NewProductComponent } from './src/components/main/new-product/new-product.component';
 
-
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -29,7 +29,8 @@ import { NewProductComponent } from './src/components/main/new-product/new-produ
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
