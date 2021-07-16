@@ -21,6 +21,7 @@
       Save Order
     </button>
     <button
+      (click)="saveProduct(orderModel, product)"
       type="submit"
       class="
         mr-5
@@ -43,7 +44,7 @@
   <div class="col-span-12 p-5 mt-3">
     <form class="w-full" #formName="ngForm" (ngSubmit)="addOrder(orderModel)">
       <div class="flex flex-wrap -mx-3">
-        <div class="w-full md:w-2/5 px-3">
+        <div class="w-full md:w-1/2 px-3">
           <label
             class="
               block
@@ -78,7 +79,9 @@
               "
               id="productname"
             >
-              <option *ngFor="let product of allProducts">{{product.name}}</option>
+              <option *ngFor="let product of allProducts" [ngValue]="product">
+                {{ product.name }}
+              </option>
             </select>
             <div
               class="
@@ -105,7 +108,7 @@
           </div>
         </div>
 
-        <div class="w-full md:w-2/5 px-3">
+        <div class="w-full md:w-1/2 px-3">
           <label
             class="
               block
@@ -168,62 +171,28 @@
             </div>
           </div>
         </div>
-
-        <div class="w-full md:w-1/5 px-3">
-          <label
-            class="
-              block
-              uppercase
-              tracking-wide
-              text-gray-700 text-xs
-              font-bold
-              mb-2
-            "
-            for="count"
-          >
-            Count
-          </label>
-          <div class="relative">
-            <input
-              #count="ngModel"
-              [(ngModel)]="orderModel.count"
-              name="count"
-              class="
-                appearance-none
-                block
-                w-full
-                bg-gray-200
-                text-gray-700
-                border
-                rounded
-                py-3
-                px-4
-                mb-3
-                leading-tight
-                focus:outline-none focus:bg-white
-              "
-              id="count"
-              type="text"
-              placeholder="Count"
-            />
-          </div>
-        </div>
       </div>
     </form>
   </div>
 
   <div class="addorders col-span-12 p-5 capitalize">
     <ul>
-
-      <li *ngFor="let order of allOrders" class="grid grid-cols-12 px-2 bg-gray-100 py-3">
+      <li
+        *ngFor="let product of orderModel.products"
+        class="grid grid-cols-12 px-2 bg-gray-100 py-3"
+      >
         <div class="title col-span-10 md:col-span-3 font-bold text-blue-700">
-          {{order.productname}}
+          {{ product.name }}
         </div>
-        <div class="col-span-2 md:col-span-3 text-gray-700">  {{order.count}}x </div>
+        <div class="col-span-2 md:col-span-3 text-gray-700">
+          {{ orderModel.count }}x
+        </div>
         <div class="col-span-10 md:col-span-3 pt-3 md:pt-0 text-gray-700">
-          {{order.date}}
+          {{ product.description }}
         </div>
-        <div class="col-span-2 md:col-span-3 pt-3 md:pt-0 text-gray-700">price $</div>
+        <div class="col-span-2 md:col-span-3 pt-3 md:pt-0 text-gray-700">
+          {{ product.price }} $
+        </div>
       </li>
 
       <li class="grid grid-cols-12 px-2 bg-gray-100 py-3">
@@ -231,10 +200,9 @@
           Total
         </div>
         <div class="col-span-2 md:col-span-3 text-gray-700 text-blue-700">
-          80$
+          €{{ orderModel.totalPrice }}
         </div>
       </li>
     </ul>
-    <p class="text-right mt-4">total: 60$</p>
   </div>
 </section>

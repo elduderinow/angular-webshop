@@ -30,9 +30,10 @@ let allOrders = [
   {
     date: '16/07/2021',
     productname: 'shorts',
+    products: [],
     customer: 'Jonas',
     count: 2,
-    id:""
+    id: '',
   },
 ];
 

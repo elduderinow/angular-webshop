@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Order } from './order';
 import { OrderService } from './order.service';
-import { v4 as uuidv4 } from 'uuid';
-import {AddProductService} from "../new-product/add-product.service";
+import { AddProductService } from '../new-product/add-product.service';
 import { Product } from 'src/app/product';
 
 @Component({
@@ -11,15 +10,16 @@ import { Product } from 'src/app/product';
   styleUrls: ['./add-order.component.scss'],
 })
 export class AddOrderComponent implements OnInit {
-
-  orderModel = new Order("","",0, uuidv4());
+  orderModel = new Order(null, '', 0);
+  product = new Product('', 0, '', 0);
 
   allOrders: Order[] = [];
   allProducts: Product[] = [];
 
-
-  constructor(private orderService: OrderService, private addProductService: AddProductService) {}
-
+  constructor(
+    private orderService: OrderService,
+    private addProductService: AddProductService
+  ) {}
 
   addOrder(order: Order) {
     this.orderService
@@ -27,13 +27,28 @@ export class AddOrderComponent implements OnInit {
       .subscribe((data) => this.fetchOrder(this.orderService.url));
   }
 
-  saveOrder() {
-
+  trackByIndex(index: number) {
+    return index;
   }
+
+  saveProduct(order: Order, product: Product) {
+    order.products.push(order.productname);
+    this.calculatePrice(order);
+  }
+
+  calculatePrice(order: Order) {
+    order.totalPrice = order.products.reduce(
+      (total, product) => total + product.price,
+      0
+    );
+  }
+
+  saveOrder() {}
 
   ngOnInit(): any {
     this.fetchOrder(this.orderService.url);
     this.getProducts(this.addProductService.url);
+    console.log(this.allProducts);
   }
 
   public async fetchOrder(url: string) {
@@ -47,5 +62,7 @@ export class AddOrderComponent implements OnInit {
     const result = await data.json();
 
     this.allProducts = result;
+
+    console.log(this.allProducts);
   }
 }
