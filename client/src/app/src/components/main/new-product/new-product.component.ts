@@ -29,6 +29,5 @@ export class NewProductComponent implements OnInit {
     const result = await data.json();
 
     this.allProducts = result;
-    console.log(this.allProducts);
   }
 }
