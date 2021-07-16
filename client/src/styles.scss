@@ -4,9 +4,13 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+html {
+  font-family: "Open Sans", sans-serif;
+}
 
 .new-btn {
   @apply px-4 py-1 rounded-2xl float-right text-white bg-green-500 hover:bg-green-700 transition ease-in duration-75;
   font-weight: normal;
 }
+
 
