@@ -3,7 +3,6 @@
     <h1 class="float-left text-blue-700">Add /edit Orders</h1>
     <button
       routerLink="/orders"
-      (click)="addOrder(orderModel)"
       type="submit"
       class="
         bg-blue-500
@@ -21,6 +20,7 @@
       Save Order
     </button>
     <button
+      (click)="addOrder(orderModel)"
       type="submit"
       class="
         mr-5
@@ -223,7 +223,11 @@
         <div class="col-span-10 md:col-span-3 pt-3 md:pt-0 text-gray-700">
           {{order.date}}
         </div>
-        <div class="col-span-2 md:col-span-3 pt-3 md:pt-0 text-gray-700">price $</div>
+        <div *ngFor="let product of allProducts">
+          <div *ngIf="product.name == order.productname">
+        <div class="col-span-2 md:col-span-3 pt-3 md:pt-0 text-gray-700">{{ product.price }}€</div>
+          </div>
+        </div>
       </li>
 
       <li class="grid grid-cols-12 px-2 bg-gray-100 py-3">
