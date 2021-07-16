@@ -20,10 +20,9 @@ app.all('/*', function (req, res, next) {
 let allProducts = [
   {
     name: 'Sweater',
-      stock: 6,
+    stock: 6,
     description: 'Green Sweater',
-      price:20
-
+    price: 20,
   },
 ];
 
@@ -63,6 +62,7 @@ app.get('/getOrders', function (request, response) {
 
 app.post('/addOrder', function (request, response) {
   allOrders.push(request.body);
+  console.log(allOrders);
   response.status(200).send();
 });
 
