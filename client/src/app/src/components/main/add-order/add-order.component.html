@@ -1,11 +1,10 @@
-<div *ngFor="let order of allOrder"></div>
+<div *ngFor="let order of allOrders"></div>
 
 <section class="grid grid-cols-12 shadow-md rounded-2xl bg-white my-2">
   <div class="col-span-12 px-5 mt-6 font-bold">
     <h1 class="float-left text-blue-700">Add /edit Orders</h1>
     <button
       type="submit"
-      (click)="addOrder(orderModel)"
       class="
         bg-blue-500
         px-4
@@ -23,6 +22,7 @@
     </button>
     <button
       type="submit"
+      (click)="addOrder(orderModel)"
       class="
         mr-5
         bg-blue-500
