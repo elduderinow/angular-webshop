@@ -33,6 +33,7 @@ let allOrders = [
     productname: 'shorts',
     customer: 'Jonas',
     count: 2,
+    id:""
   },
 ];
 
