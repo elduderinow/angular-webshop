@@ -17,7 +17,6 @@ export class AddOrderComponent implements OnInit {
   allProducts: Product[] = [];
 
 
-
   constructor(private orderService: OrderService, private addProductService: AddProductService) {}
 
 
