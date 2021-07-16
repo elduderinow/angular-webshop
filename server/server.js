@@ -17,13 +17,12 @@ app.all('/*', function (req, res, next) {
   next();
 });
 
-let allFriends = [
+let allProduct = [
   {
-    _firstname: 'Coach',
-    _lastname: 'Tim',
-    _email: 'tim.broos@becode.org',
-    _phone: '0469420666',
-    _language: 'Javascript',
+    name: '',
+    price:20,
+    description: '',
+    stock: 1,
   },
 ];
 
@@ -40,11 +39,11 @@ app.post('/', function (request, response) {
 
 app.listen(PORT, function () {});
 
-app.get('/allFriends', function (request, response) {
-  response.send(allFriends);
+app.get('/allProducts', function (request, response) {
+  response.send(allProduct);
 });
 
-app.post('/addFriend', function (request, response) {
-  allFriends.push(request.body);
+app.post('/addProduct', function (request, response) {
+  allProduct.push(request.body);
   response.status(200).send();
 });
