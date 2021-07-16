@@ -1,0 +1,16 @@
+section {
+  .addorders ul li {
+    &:first-child {
+      @apply rounded-tl-xl rounded-tr-xl;
+    }
+
+    &:nth-child(even) {
+      background-color: #e5e5e5;
+    }
+
+    &:last-child {
+      @apply rounded-bl-xl rounded-br-xl;
+    }
+
+  }
+}
