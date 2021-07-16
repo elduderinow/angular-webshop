@@ -1,6 +1,8 @@
 import { Component, OnInit  } from '@angular/core';
 import {Order} from "./order";
 import {OrderService} from "./order.service";
+import { v4 as uuidv4 } from 'uuid';
+
 
 @Component({
   selector: 'app-add-order',
@@ -11,7 +13,7 @@ export class AddOrderComponent implements OnInit {
   allOrder: any;
   urlAllOrder = "http://localhost:9000/allOrder"
 
-  orderModel = new Order("","",0);
+  orderModel = new Order("","",0, uuidv4());
 
   addOrder(){
     console.log(this.orderModel)

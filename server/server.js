@@ -19,10 +19,11 @@ app.all('/*', function (req, res, next) {
 
 let allProducts = [
   {
-    name: '',
-    price: 20,
-    description: '',
-    stock: 1,
+    name: 'Sweater',
+      stock: 6,
+    description: 'Green Sweater',
+      price:20
+
   },
 ];
 
