@@ -10,7 +10,7 @@ import { Product } from 'src/app/product';
   styleUrls: ['./add-order.component.scss'],
 })
 export class AddOrderComponent implements OnInit {
-  orderModel = new Order(null, '', 0);
+  orderModel = new Order('', 0);
   product = new Product('', 0, '', 0);
 
   allOrders: Order[] = [];
@@ -32,11 +32,11 @@ export class AddOrderComponent implements OnInit {
   }
 
   saveProduct(order: Order, product: Product) {
-    order.products.push(order.productname);
-    this.calculatePrice(order);
+    order.products.push(product);
+    this.calculateTotalPrice(order);
   }
 
-  calculatePrice(order: Order) {
+  calculateTotalPrice(order: Order) {
     order.totalPrice = order.products.reduce(
       (total, product) => total + product.price,
       0

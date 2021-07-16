@@ -2,7 +2,7 @@ import { Product } from 'src/app/product';
 import { v4 as uuidv4 } from 'uuid';
 
 export class Order {
-  productname: any;
+  id: string;
   products: Product[];
   customer: string;
   count: number;
@@ -13,14 +13,12 @@ export class Order {
     +(new Date().getMonth() + 1) +
     '/' +
     new Date().getFullYear();
-  id: string;
 
-  constructor(productname: any, customer: string, count: number) {
+  constructor(customer: string, count: number) {
     this.customer = customer;
     this.count = count;
     this.id = uuidv4();
     this.products = [];
-    this.productname = productname;
     this.totalPrice = 0;
   }
 }
