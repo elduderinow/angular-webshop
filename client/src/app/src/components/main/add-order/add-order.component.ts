@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { threadId } from 'worker_threads';
-import { AddProductService } from '../new-product/add-product.service';
 import { Order } from './order';
 import { OrderService } from './order.service';
 
@@ -13,13 +11,13 @@ export class AddOrderComponent implements OnInit {
   orderModel = new Order('', '', 0);
   allOrders: Order[] = [];
 
+  constructor(private orderService: OrderService) {}
+
   addOrder(order: Order) {
     this.orderService
       .addOrder(order)
       .subscribe((data) => this.fetchOrder(this.orderService.url));
   }
-
-  constructor(private orderService: OrderService) {}
 
   ngOnInit(): any {
     this.fetchOrder(this.orderService.url);
