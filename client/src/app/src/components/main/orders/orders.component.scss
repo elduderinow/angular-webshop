@@ -11,6 +11,18 @@ section {
     &:last-child {
       @apply rounded-bl-xl rounded-br-xl;
     }
-
+    .btn-edit {
+      @apply text-sm
+      px-4
+      py-1
+      rounded-2xl
+      float-right
+      text-white
+      bg-blue-500
+      hover:bg-blue-700
+      transition
+      ease-in
+      duration-75;
+    }
   }
 }
