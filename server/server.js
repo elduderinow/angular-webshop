@@ -17,10 +17,10 @@ app.all('/*', function (req, res, next) {
   next();
 });
 
-let allProduct = [
+let allProducts = [
   {
     name: '',
-    price:20,
+    price: 20,
     description: '',
     stock: 1,
   },
@@ -37,13 +37,16 @@ app.post('/', function (request, response) {
   response.status(200).send({ message: 'Data received' });
 });
 
-app.listen(PORT, function () {});
-
-app.get('/allProducts', function (request, response) {
-  response.send(allProduct);
+app.get('/getProducts', (request, response) => {
+  response.send(allProducts);
 });
 
-app.post('/addProduct', function (request, response) {
-  allProduct.push(request.body);
-  response.status(200).send();
+app.post('/addProduct', (request, response) => {
+  allProducts.push(request.body);
+  response.status(200).send({ message: 'Product added' });
+  console.log(allProducts);
+});
+
+app.listen(PORT, function () {
+  console.log(`Now running on port: ${PORT}`);
 });

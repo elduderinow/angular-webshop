@@ -1,30 +1,34 @@
 import { Component, OnInit } from '@angular/core';
-import { NewProduct } from "./new-product";
-import {AddProductService} from "./add-product.service";
+import { AddProductService } from './add-product.service';
+import { Product } from 'src/app/product';
 
 @Component({
   selector: 'app-new-product',
   templateUrl: './new-product.component.html',
   styleUrls: ['./new-product.component.scss'],
-
 })
-
 export class NewProductComponent implements OnInit {
-  private addProductService: AddProductService;
-  product:NewProduct = new NewProduct("",0,"",0)
-  allProducts:NewProduct[] = []
+  product: Product = new Product('', 0, '', 0);
+  allProducts: Product[] = [];
 
-  constructor(addProductService: AddProductService) {
-    this.addProductService = addProductService;
+  constructor(private addProductService: AddProductService) {}
+
+  ngOnInit(): any {
+    this.getProducts(this.addProductService.url);
   }
 
-  ngOnInit(): void {
-
+  onClick(product: Product) {
+    this.addProductService.addProduct(product).subscribe(
+      (data) => this.getProducts(this.addProductService.url),
+      (error) => 'Me no worky for free!'
+    );
   }
 
-  onClick() {
-    console.log(this.addProductService.addProduct(this.product).subscribe((data => JSON.stringify(data))))
-    console.log("form-works")
-  }
+  public async getProducts(url: string) {
+    const data = await fetch(`${url}/getProducts`);
+    const result = await data.json();
 
+    this.allProducts = result;
+    console.log(this.allProducts);
+  }
 }

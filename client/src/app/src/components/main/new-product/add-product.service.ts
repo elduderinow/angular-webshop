@@ -1,19 +1,16 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {NewProduct} from "./new-product";
+import { HttpClient } from '@angular/common/http';
+import { Product } from 'src/app/product';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AddProductService {
-  private http: HttpClient;
-  public url : string = "http://localhost:9000/addProduct";
+  url: string = 'http://localhost:9000';
 
-  constructor(http: HttpClient) {
-    this.http = http;
-  }
+  constructor(private http: HttpClient) {}
 
-  addProduct(x: NewProduct) {
-    return this.http.post(this.url, x)
+  addProduct(product: Product) {
+    return this.http.post(`${this.url}/addProduct`, product);
   }
 }
