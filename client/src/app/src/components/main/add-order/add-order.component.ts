@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Order } from './order';
-import { OrderService } from './order.service';
+import { Component, OnInit  } from '@angular/core';
+import {Order} from "./order";
+import {OrderService} from "./order.service";
+import { v4 as uuidv4 } from 'uuid';
+
 
 @Component({
   selector: 'app-add-order',
@@ -8,7 +10,7 @@ import { OrderService } from './order.service';
   styleUrls: ['./add-order.component.scss'],
 })
 export class AddOrderComponent implements OnInit {
-  orderModel = new Order('', '', 0);
+  orderModel = new Order("","",0, uuidv4());;
   allOrders: Order[] = [];
 
   constructor(private orderService: OrderService) {}
