@@ -11,21 +11,28 @@ app.all('/*', function (req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
   res.header(
-    'Access-Control-Allow-Headers',
-    'Content-Type, Authorization, Content-Length, X-Requested-With'
+      'Access-Control-Allow-Headers',
+      'Content-Type, Authorization, Content-Length, X-Requested-With'
   );
   next();
 });
 
-let allFriends = [
+let allProduct = [
   {
-    _firstname: 'Coach',
-    _lastname: 'Tim',
-    _email: 'tim.broos@becode.org',
-    _phone: '0469420666',
-    _language: 'Javascript',
+    name: '',
+    price:20,
+    description: '',
+    stock: 1,
   },
 ];
+
+let allOrder =  [ {
+      date: '16/07/2021',
+      productname: 'shorts',
+      customer: 'Jonas',
+      count: 2
+    },
+    ];
 
 // Below you can define how your API handles a get or a post request.
 // Try sending a get request to the root, you should get a "Hello from server" back.
@@ -40,11 +47,12 @@ app.post('/', function (request, response) {
 
 app.listen(PORT, function () {});
 
-app.get('/allFriends', function (request, response) {
-  response.send(allFriends);
+app.get('/allOrder', function (request, response) {
+  response.send(allOrder);
 });
 
-app.post('/addFriend', function (request, response) {
-  allFriends.push(request.body);
+app.post('/addOrder', function (request, response) {
+  allOrder.push(request.body);
   response.status(200).send();
 });
+
