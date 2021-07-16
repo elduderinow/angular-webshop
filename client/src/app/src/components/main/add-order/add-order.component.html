@@ -1,24 +1,26 @@
+{{ orderModel | json }}
+
 <section class="grid grid-cols-12 shadow-md rounded-2xl bg-white my-2">
   <div class="col-span-12 px-5 mt-6 font-bold">
     <h1 class="float-left text-blue-700">Add /edit Orders</h1>
-    <button type="submit" class="bg-blue-500 px-4 py-1 rounded-2xl float-right text-white hover:bg-blue-700 transition ease-in duration-75">SAVE</button>
+    <button type="submit" (click)="addProduct()" class="bg-blue-500 px-4 py-1 rounded-2xl float-right text-white hover:bg-blue-700 transition ease-in duration-75">SAVE</button>
   </div>
 
   <div class="col-span-12 p-5  mt-3">
-    <form class="w-full">
+    <form class="w-full" #formName="ngForm" (ngSubmit)="addProduct()">
       <div class="flex flex-wrap -mx-3 ">
         <div class="w-full md:w-2/5 px-3 mb-6 md:mb-0">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="productname">
             Product Name
           </label>
-          <input class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" placeholder="Product Name">
+          <input #productname="ngModel" [(ngModel)]="orderModel.productname" name="productname" class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="productname" type="text" placeholder="Product Name">
         </div>
         <div class="w-full md:w-2/5 px-3">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="customer">
             Customer
           </label>
           <div class="relative">
-            <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
+            <select #customer="ngModel" [(ngModel)]="orderModel.customer" name="customer" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="customer">
               <option>Jonas</option>
               <option>Tom D</option>
               <option>Yarrut</option>
@@ -30,11 +32,11 @@
         </div>
 
         <div class="w-full md:w-1/5 px-3">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="count">
             Count
           </label>
           <div class="relative">
-            <input class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" placeholder="Count">
+            <input #count="ngModel" [(ngModel)]="orderModel.count" name="count" class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="count" type="text" placeholder="Count">
           </div>
         </div>
       </div>
