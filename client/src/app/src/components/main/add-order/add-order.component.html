@@ -78,9 +78,7 @@
               "
               id="productname"
             >
-              <option>hoodies</option>
-              <option>sneakers</option>
-              <option>shirts</option>
+              <option *ngFor="let product of allProducts">{{product.name}}</option>
             </select>
             <div
               class="
@@ -216,48 +214,16 @@
 
   <div class="addorders col-span-12 p-5 capitalize">
     <ul>
-      <li class="grid grid-cols-12 px-2 bg-gray-100 py-3">
-        <div class="title col-span-10 md:col-span-3 font-bold text-blue-700">
-          hoodie
-        </div>
-        <div class="col-span-2 md:col-span-3 text-gray-700">1x</div>
-        <div class="col-span-10 md:col-span-3 sm:pt-3 text-gray-700">
-          23 Juli 2019
-        </div>
-        <div class="col-span-2 md:col-span-3 sm:pt-3 text-gray-700">20$</div>
-      </li>
 
-      <li class="grid grid-cols-12 px-2 bg-gray-100 py-3">
+      <li *ngFor="let order of allOrders" class="grid grid-cols-12 px-2 bg-gray-100 py-3">
         <div class="title col-span-10 md:col-span-3 font-bold text-blue-700">
-          hoodie
+          {{order.productname}}
         </div>
-        <div class="col-span-2 md:col-span-3 text-gray-700">1x</div>
-        <div class="col-span-10 md:col-span-3 sm:pt-3 text-gray-700">
-          23 Juli 2019
+        <div class="col-span-2 md:col-span-3 text-gray-700">  {{order.count}}x </div>
+        <div class="col-span-10 md:col-span-3 pt-3 md:pt-0 text-gray-700">
+          {{order.date}}
         </div>
-        <div class="col-span-2 md:col-span-3 sm:pt-3 text-gray-700">20$</div>
-      </li>
-
-      <li class="grid grid-cols-12 px-2 bg-gray-100 py-3">
-        <div class="title col-span-10 md:col-span-3 font-bold text-blue-700">
-          hoodie
-        </div>
-        <div class="col-span-2 md:col-span-3 text-gray-700">1x</div>
-        <div class="col-span-10 md:col-span-3 sm:pt-3 text-gray-700">
-          23 Juli 2019
-        </div>
-        <div class="col-span-2 md:col-span-3 sm:pt-3 text-gray-700">20$</div>
-      </li>
-
-      <li class="grid grid-cols-12 px-2 bg-gray-100 py-3">
-        <div class="title col-span-10 md:col-span-3 font-bold text-blue-700">
-          hoodie
-        </div>
-        <div class="col-span-2 md:col-span-3 text-gray-700">1x</div>
-        <div class="col-span-10 md:col-span-3 sm:pt-3 text-gray-700">
-          23 Juli 2019
-        </div>
-        <div class="col-span-2 md:col-span-3 sm:pt-3 text-gray-700">20$</div>
+        <div class="col-span-2 md:col-span-3 pt-3 md:pt-0 text-gray-700">price $</div>
       </li>
 
       <li class="grid grid-cols-12 px-2 bg-gray-100 py-3">
