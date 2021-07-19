@@ -7,7 +7,7 @@
     <ul>
       <li *ngFor="let product of allProducts" class="grid grid-cols-10 px-2 bg-gray-100 py-3 capitalize">
         <div class="col-span-4 md:col-span-2 font-bold text-blue-700"> {{ product.name }}</div>
-        <div class="col-span-2 text-gray-700">{{ product.stock }}x</div>
+        <div class="col-span-2 text-gray-700">{{ product.stock }} in stock</div>
         <div class="hidden md:block col-span-2 text-gray-700">{{ product.description }}</div>
         <div class="col-span-2 text-gray-700">{{ product.price }}€</div>
         <div class="col-span-2 float-right">
