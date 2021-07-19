@@ -22,7 +22,7 @@
           {{ order.totalPrice }}$
         </div>
         <div class="col-span-4 md:col-span-2 float-right">
-          <button type="submit" class="btn-edit">Edit</button>
+          <a routerLink="edit/{{ order.id }}" class="btn-edit">Edit</a>
         </div>
       </li>
     </ul>

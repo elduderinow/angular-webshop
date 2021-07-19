@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Order } from './order';
 import { OrderService } from './order.service';
 import { AddProductService } from '../new-product/add-product.service';
@@ -16,9 +17,12 @@ export class AddOrderComponent implements OnInit {
   allOrders: Order[] = [];
   allProducts: Product[] = [];
 
+  orderId: string = '';
+
   constructor(
     private orderService: OrderService,
-    private addProductService: AddProductService
+    private addProductService: AddProductService,
+    private route: ActivatedRoute
   ) {}
 
   addOrder(order: Order) {
@@ -46,15 +50,27 @@ export class AddOrderComponent implements OnInit {
   saveOrder() {}
 
   ngOnInit(): any {
+    this.route.params.subscribe((params) => {
+      this.orderId = params.id;
+    });
     this.fetchOrder(this.orderService.url);
     this.getProducts(this.addProductService.url);
-    console.log(this.allProducts);
+    // this.assignOrder(this.orderId);
+  }
+
+  assignOrder(id: string) {
+    const order = this.allOrders.find((order) => order.id === id);
+    this.orderModel = order!;
+    console.log(order);
   }
 
   public async fetchOrder(url: string) {
     const data = await fetch(`${url}/getOrders`);
     const result = await data.json();
     this.allOrders = result;
+    if (this.orderId) {
+      this.assignOrder(this.orderId);
+    }
   }
 
   public async getProducts(url: string) {
@@ -62,7 +78,5 @@ export class AddOrderComponent implements OnInit {
     const result = await data.json();
 
     this.allProducts = result;
-
-    console.log(this.allProducts);
   }
 }

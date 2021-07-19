@@ -55,7 +55,6 @@ app.get('/getProducts', (request, response) => {
 app.post('/addProduct', (request, response) => {
   allProducts.push(request.body);
   response.status(200).send({ message: 'Product added' });
-  console.log(allProducts);
 });
 
 app.get('/getOrders', function (request, response) {
@@ -64,7 +63,6 @@ app.get('/getOrders', function (request, response) {
 
 app.post('/addOrder', function (request, response) {
   allOrders.push(request.body);
-  console.log(allOrders);
   response.status(200).send();
 });
 
