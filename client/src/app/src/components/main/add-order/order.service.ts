@@ -13,4 +13,8 @@ export class OrderService {
   addOrder(data: Order) {
     return this.http.post(`${this.url}/addOrder`, data);
   }
+
+  updateOrder(data: Order, id: string) {
+    return this.http.put(`${this.url}/updateOrder/${id}`, data);
+  }
 }
