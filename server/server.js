@@ -29,10 +29,11 @@ let allProducts = [
 let allOrders = [
   {
     date: '16/07/2021',
-    products: [],
+    products: [allProducts[0]],
     customer: 'Jonas',
     count: 2,
-    id: '',
+    id: '1',
+    totalPrice: 20,
   },
 ];
 
