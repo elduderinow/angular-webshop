@@ -5,10 +5,11 @@
 - Duration: `2 days`
 - Deployment strategy : `NA`
 - Team challenge : `groups of 3`
+- Demo: https://webshopbecode.herokuapp.com
 
 ## Project contributors:
 - Tom Dirinck
-- Yarrut Francken
+- Yarrut Franken
 - Jonas Rossou
 
 ## Learning objectives?
