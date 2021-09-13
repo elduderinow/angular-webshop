@@ -26,13 +26,15 @@ export class AddOrderComponent implements OnInit {
   ) {}
 
   addOrder(order: Order) {
-    this.orderService
-      .addOrder(order)
-      .subscribe((data) => this.fetchOrder(this.orderService.url));
-  }
-
-  trackByIndex(index: number) {
-    return index;
+    if (this.orderId) {
+      this.orderService
+        .updateOrder(order, this.orderId)
+        .subscribe((data) => this.fetchOrder(this.orderService.url));
+    } else {
+      this.orderService
+        .addOrder(order)
+        .subscribe((data) => this.fetchOrder(this.orderService.url));
+    }
   }
 
   saveProduct(order: Order, product: Product) {
@@ -71,6 +73,7 @@ export class AddOrderComponent implements OnInit {
     if (this.orderId) {
       this.assignOrder(this.orderId);
     }
+    console.log(this.allOrders);
   }
 
   public async getProducts(url: string) {

@@ -29,11 +29,11 @@ let allProducts = [
 let allOrders = [
   {
     date: '16/07/2021',
-    productname: 'shorts',
-    products: [],
+    products: [allProducts[0]],
     customer: 'Jonas',
     count: 2,
-    id: '',
+    id: '1',
+    totalPrice: 20,
   },
 ];
 
@@ -64,6 +64,12 @@ app.get('/getOrders', function (request, response) {
 app.post('/addOrder', function (request, response) {
   allOrders.push(request.body);
   response.status(200).send();
+});
+
+app.put('/updateOrder/:id', (request, response) => {
+  const id = request.params.id;
+  let index = allOrders.findIndex((order) => order.id == id);
+  allOrders[index] = request.body;
 });
 
 app.listen(PORT, function () {
