@@ -1,0 +1,23 @@
+<section class="grid grid-cols-10 shadow-md rounded-2xl bg-white my-2">
+  <div class="col-span-12 px-5 mt-6 font-bold">
+    <h1 class="float-left text-blue-700">Products</h1>
+    <a routerLink="new-product" class="new-btn">New Product</a>
+  </div>
+  <div class="products col-span-12 p-5">
+    <ul>
+      <li *ngFor="let product of allProducts" class="grid grid-cols-10 px-2 bg-gray-100 py-3 capitalize">
+        <div class="col-span-4 md:col-span-2 font-bold text-blue-700"> {{ product.name }}</div>
+        <div class="col-span-2 text-gray-700">{{ product.stock }} in stock</div>
+        <div class="hidden md:block col-span-2 text-gray-700">{{ product.description }}</div>
+        <div class="col-span-2 text-gray-700">{{ product.price }}€</div>
+        <div class="col-span-2 float-right">
+          <button type="submit" class="text-sm px-4 py-1 rounded-2xl float-right text-white bg-blue-500 hover:bg-blue-700 transition ease-in duration-75">
+            Edit
+          </button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<router-outlet></router-outlet>

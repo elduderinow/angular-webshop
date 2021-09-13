@@ -1,0 +1,32 @@
+<section class="grid grid-cols-10 shadow-md rounded-2xl bg-white my-2">
+  <div class="col-span-12 px-5 mt-6 font-bold">
+    <h1 class="float-left text-blue-700">Orders</h1>
+    <a class="new-btn" routerLink="new-order">New Order</a>
+  </div>
+  <div class="orders col-span-12 p-5 capitalize">
+    <ul>
+      <li
+        *ngFor="let order of allOrders"
+        class="grid grid-cols-10 px-2 bg-gray-100 py-3"
+      >
+        <div class="col-span-4 md:col-span-2 font-bold text-blue-700">
+          #2231
+        </div>
+        <div class="col-span-6 md:col-span-2 text-gray-700">
+          {{ order.customer }}
+        </div>
+        <div class="col-span-4 md:col-span-2 text-gray-700">
+          {{ order.date }}
+        </div>
+        <div class="col-span-2 md:col-span-2 text-gray-700">
+          {{ order.totalPrice }}$
+        </div>
+        <div class="col-span-4 md:col-span-2 float-right">
+          <a routerLink="edit/{{ order.id }}" class="btn-edit">Edit</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<router-outlet></router-outlet>

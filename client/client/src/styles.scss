@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap");
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+html {
+  font-family: "Open Sans", sans-serif;
+}
+
+.new-btn {
+  @apply px-4 py-1 rounded-2xl float-right text-white bg-green-500 hover:bg-green-700 transition ease-in duration-75;
+  font-weight: normal;
+}
+
+

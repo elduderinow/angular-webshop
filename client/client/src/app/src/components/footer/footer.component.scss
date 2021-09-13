@@ -1,0 +1,29 @@
+footer {
+  div {
+    font-family: "Open Sans";
+    color: #d7d7d7;
+
+
+    img {
+      display: inline;
+      width: 50px;
+      margin-left: 10px;
+      transform: translateY(-8px);
+    }
+
+    span {
+      animation-name: example;
+      animation-duration: 0.3s;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      transform: translateY(5px);
+    }
+
+    @keyframes example {
+      0%   {color: pink;}
+      25%  {color: #ffdf6b;}
+      50%  {color: #02eaff;}
+      100% {color: pink;}
+    }
+  }
+}
